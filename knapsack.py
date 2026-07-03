@@ -1,3 +1,5 @@
+import time
+
 items = [
     (1,4,6),
     (2,8,12),
@@ -25,6 +27,8 @@ n = len(items)
 max_value = 0
 best_items = []
 
+start = time.perf_counter()
+
 for bit in range(1 << n):
     total_capacity = 0
     total_value = 0
@@ -41,5 +45,9 @@ for bit in range(1 << n):
                 max_value = total_value
                 best_items = selected
 
+end = time.perf_counter()
+
 print("選んだ品物:", best_items)
 print("最大値段:", max_value)
+print(f"処理時間: {end - start:.6f} 秒")
+
